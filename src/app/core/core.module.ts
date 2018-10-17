@@ -2,7 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import {
-  ArticleService
+  ArticleService,
+  AuthenticationService
 } from './services';
 
 @NgModule({
@@ -10,7 +11,8 @@ import {
     CommonModule
   ],
   providers: [
-    ArticleService
+    ArticleService,
+    AuthenticationService
   ],
   declarations: []
 })
