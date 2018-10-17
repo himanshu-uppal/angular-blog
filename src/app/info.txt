@@ -1,2 +1,6 @@
 ----- Routing -----
 ng generate module app-routing --flat --module=app
+
+
+---Lazy Loading Tips ----
+Dont ever include Lazy load module in app module

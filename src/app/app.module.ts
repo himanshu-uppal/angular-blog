@@ -3,10 +3,12 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import {HomeModule} from './home/home.module'
 import {
   HeaderComponent,
   FooterComponent} from './shared'
+
+import {ArticleService} from './core'
+import {HttpClientModule} from '@angular/common/http'
 
 @NgModule({
   declarations: [
@@ -17,9 +19,9 @@ import {
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HomeModule
+    HttpClientModule
   ],
-  providers: [],
+  providers: [ArticleService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
