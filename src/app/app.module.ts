@@ -9,6 +9,7 @@ import {
 
 import {ArticleService} from './core'
 import {HttpClientModule} from '@angular/common/http'
+import {AuthenticationModule} from './authentication/authentication.module'
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import {HttpClientModule} from '@angular/common/http'
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    AuthenticationModule
   ],
   providers: [ArticleService],
   bootstrap: [AppComponent]
