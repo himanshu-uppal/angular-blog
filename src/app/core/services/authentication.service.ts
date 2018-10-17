@@ -18,7 +18,7 @@ export class AuthenticationService{
             }
 
             console.log(user)
-            return this.http.post<IUser>('https://conduit.productionready.io/api/users',user,options)
+            return this.http.post<IUser>('https://conduit.productionready.io/api/users',user,options);
         }
         
 

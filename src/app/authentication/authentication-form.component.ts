@@ -20,13 +20,9 @@ export class AuthenticationFormComponent{
     }    
 
     authenticate(formValues){
-        this.authenticationService.authenticateUser(this.authenticationType,formValues).subscribe(()=>{
-            console.log('user registered')
-            this.router.navigate(['/'])
-
-        })     
+        this.authenticationService.authenticateUser(this.authenticationType,formValues).subscribe((data => console.log(data)));
     }
-
-
+           // console.log('user registered')
+            //this.router.navigate(['/'])
 
 }
