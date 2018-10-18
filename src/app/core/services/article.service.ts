@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core'
-import {IArticles} from '../models'
+import {IArticles, IArticle} from '../models'
 import {Observable} from 'rxjs'
 import {HttpClient, HttpHeaders} from '@angular/common/http'
 
@@ -12,10 +12,22 @@ export class ArticleService{
         return this.http.get<IArticles>('https://conduit.productionready.io/api/articles')
     }
 
-    // saveArticle(article){
-    //     let options = {headers:new HttpHeaders({'Content-Type':'application/json'})}
+    saveArticle(articleValues:IArticle,authorizationToken):Observable<IArticle>{
+       
 
-    //     this.http.post<IArticle>()
-    // }
+
+        let options = {headers:new HttpHeaders({'Content-Type':'application/json','Authorization': `Token ${authorizationToken}`})}
+
+        let article = {
+            article: {
+              title: articleValues.title,
+              description: articleValues.description,
+              body: articleValues.body,
+              tagList: []
+            }
+          }
+
+       return this.http.post<IArticle>('https://conduit.productionready.io/api/articles',article,options)
+    }
 
 }

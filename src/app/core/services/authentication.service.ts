@@ -52,6 +52,12 @@ export class AuthenticationService{
     logoutUser(){
         this.authenticationTokenService.removeToken()
     }
+
+    getCurrentUserToken(){
+        return this.authenticationTokenService.getToken()
+
+    }
+
     
 
     getCurrentUser(){

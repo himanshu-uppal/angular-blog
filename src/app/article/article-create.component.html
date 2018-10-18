@@ -1,3 +1,33 @@
-<p>
-    article create form!
-</p>
+<h2>
+        <div >Create Article</div>
+       
+       
+</h2>
+<div>
+<form #createArticleForm="ngForm" (ngSubmit)="saveArticle(createArticleForm.value)" novalidate>   
+        <div class="form-group">
+            <label for="title">title:</label>           
+            <input (ngModel)="title" name="title" type="title" class="form-control" id="title">
+              </div>
+        <div class="form-group">
+                    <label for="description">description:</label>           
+                    <input (ngModel)="description" name="description" type="text" class="form-control" id="description">
+                      </div>
+        <div class="form-group">
+                            <label for="body">body:</label>           
+                            <input (ngModel)="body" name="body" type="text" class="form-control" id="body">
+                              </div>
+        <div class="form-group">
+                                    <label for="tags">tags:</label>           
+                                    <input (ngModel)="tags" name="tags" type="tags" class="form-control" id="tags">
+                                      </div>
+              
+             
+      
+    <button  type="submit" class="btn btn-default">Create Article</button>
+ 
+       
+    
+  </form>
+</div>
+
