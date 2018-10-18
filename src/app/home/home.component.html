@@ -3,7 +3,10 @@
     </div>
 
     <div>
-        <span *ngIf="isAuthenticated()">Authenticated User</span><br>
-        <span *ngIf="!isAuthenticated()">Shoo Shoo</span>
+        <div *ngIf="isAuthenticated()">
+            <button (click)="logout()">Log Out</button>
+        </div>
+      
+        
     </div>
     

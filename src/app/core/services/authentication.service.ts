@@ -40,10 +40,7 @@ export class AuthenticationService{
 
     }
 
-    loginUser(){
-        console.log('user = ')
-        console.log(this.currentUser)
-        console.log('token = '+this.currentUser.user.token)
+    loginUser(){       
         this.authenticationTokenService.setToken(this.currentUser.user.token)
     }
     isAuthenticated(){
@@ -51,6 +48,9 @@ export class AuthenticationService{
             return true        }
         
         return false
+    }
+    logoutUser(){
+        this.authenticationTokenService.removeToken()
     }
     
 
