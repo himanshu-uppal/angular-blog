@@ -41,19 +41,19 @@ export class ArticleService{
 
     }
 
-    updateArticle(articleValues:IArticle,authorizationToken):Observable<IArticle>{
+    updateArticle(articleValues:any,authorizationToken):Observable<IArticle>{
         let options = {headers:new HttpHeaders({'Content-Type':'application/json','Authorization': `Token ${authorizationToken}`})}
 
         let article = {
             article: {
-              title: articleValues.title,
-              description: articleValues.description,
-              body: articleValues.body,
+              title: articleValues.article.title,
+              description: articleValues.article.description,
+              body: articleValues.article.body,
               tagList: []
             }
           }
 
-          let slug = articleValues.slug
+          let slug = articleValues.article.slug
 
           let url = 'https://conduit.productionready.io/api/articles/'+slug
 

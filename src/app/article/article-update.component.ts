@@ -7,7 +7,7 @@ import {Router,ActivatedRoute} from '@angular/router'
 templateUrl:'./article-update.component.html'
 })
 export class ArticleUpdateComponent implements OnInit{
-    article:IArticle
+    article:any
 
     constructor(private articleService:ArticleService,
         private authenticationService:AuthenticationService,
