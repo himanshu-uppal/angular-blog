@@ -1,4 +1,9 @@
     <div *ngFor="let article of allArticles" >
         {{article.title}}
     </div>
+
+    <div>
+        <span *ngIf="isAuthenticated()">Authenticated User</span><br>
+        <span *ngIf="!isAuthenticated()">Shoo Shoo</span>
+    </div>
     

@@ -46,12 +46,13 @@ export class AuthenticationService{
         console.log('token = '+this.currentUser.user.token)
         this.authenticationTokenService.setToken(this.currentUser.user.token)
     }
-    isUserLoggedIn(){
-        if(this.authenticationTokenService.getToken() == this.currentUser.user.token){
+    isAuthenticated(){
+        if(this.authenticationTokenService.getToken()){
             return true        }
         
         return false
     }
+    
 
     getCurrentUser(){
         return this.http.get<IUser>('https://conduit.productionready.io/api/user')

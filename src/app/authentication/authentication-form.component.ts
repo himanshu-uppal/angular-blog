@@ -40,13 +40,7 @@ export class AuthenticationFormComponent{
         }) 
         
     }
-    isAuthenticated(){
-       if (this.authenticationService.isUserLoggedIn()){
-           return true          
-       }
-       return false
-
-    }
+   
           
 
 }
