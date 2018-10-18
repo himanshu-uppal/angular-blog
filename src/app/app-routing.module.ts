@@ -7,6 +7,10 @@ const routes:Routes = [
   {
     path: '',
     loadChildren: './home/home.module#HomeModule'
+  },
+  {
+    path:'articles',
+    loadChildren:'./article/article.module#ArticleModule'
   }
 ]
 
