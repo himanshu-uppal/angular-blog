@@ -7,7 +7,7 @@ import {
   HeaderComponent,
   FooterComponent} from './shared'
 
-import {ArticleService} from './core'
+import {ArticleService,AuthenticationService} from './core'
 import {HttpClientModule} from '@angular/common/http'
 import {AuthenticationModule} from './authentication/authentication.module'
 
@@ -23,7 +23,7 @@ import {AuthenticationModule} from './authentication/authentication.module'
     HttpClientModule,
     AuthenticationModule
   ],
-  providers: [ArticleService],
+  providers: [ArticleService,AuthenticationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

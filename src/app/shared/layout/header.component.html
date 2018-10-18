@@ -1,1 +1,6 @@
-<p>header works!</p>
+-----<span><a routerLink="/" >Home </a>-----</span>
+<span *ngIf="!isAuthenticated"><a  routerLink="/login" >Sign in </a>-----</span>
+<span *ngIf="!isAuthenticated"><a routerLink="/register" >Sign Up </a>-----</span>
+<span *ngIf="isAuthenticated"><a routerLink="/logout" >Sign out </a>-----</span>
+<span *ngIf="isAuthenticated"><a routerLink="/articles" >Create Article </a>-----</span>
+<!-- <span><a routerLink="/settings" >Settings</a></span> -->

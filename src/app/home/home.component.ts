@@ -4,6 +4,7 @@ import {IArticles,IArticle} from '../core'
 import {ActivatedRoute} from '@angular/router'
 import {AuthenticationService} from '../core'
 import { Observable } from 'rxjs';
+import {Router} from '@angular/router'
 
 @Component({
     selector:'app-home-page',
@@ -13,7 +14,7 @@ export class HomeComponent implements OnInit{
     articles:IArticles
     allArticles:Array<IArticle>
     
-    constructor(private route:ActivatedRoute,private authenticationService:AuthenticationService){}
+    constructor(private route:ActivatedRoute,private authenticationService:AuthenticationService,private router:Router){}
 
     ngOnInit(){
         this.articles = this.route.snapshot.data['articles']
@@ -25,6 +26,7 @@ export class HomeComponent implements OnInit{
     }
     logout(){
         this.authenticationService.logoutUser()
+        this.router.navigate([''])
     }
 
 }
