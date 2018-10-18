@@ -3,7 +3,8 @@ import { CommonModule } from '@angular/common';
 
 import {
   ArticleService,
-  AuthenticationService
+  AuthenticationService,
+  AuthenticationTokenService
 } from './services';
 
 @NgModule({
@@ -12,7 +13,8 @@ import {
   ],
   providers: [
     ArticleService,
-    AuthenticationService
+    AuthenticationService,
+    AuthenticationTokenService
   ],
   declarations: []
 })

@@ -1,12 +1,13 @@
 import {Injectable} from '@angular/core'
 import {HttpClient,HttpHeaders} from '@angular/common/http'
 import {IUser} from '../models'
+import { Observable } from 'rxjs';
 
 @Injectable()
 export class AuthenticationService{
     constructor(private http:HttpClient){}
 
-    authenticateUser(authenticationType:string,userValues:any){
+    authenticateUser(authenticationType:string,userValues:any):Observable<IUser>{
         let options = {headers:new HttpHeaders({'Content-Type':'application/json'})}
         if(authenticationType == 'register'){
             
@@ -34,6 +35,11 @@ export class AuthenticationService{
             return this.http.post<IUser>('https://conduit.productionready.io/api/users/login',user,options);
         }
         
+
+    }
+
+    getCurrentUser(){
+        return this.http.get<IUser>('https://conduit.productionready.io/api/user')
 
     }
     
