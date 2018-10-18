@@ -1,6 +1,6 @@
 import {Component} from '@angular/core'
 import {ActivatedRoute,Router} from '@angular/router'
-import {AuthenticationService} from '../core'
+import {AuthenticationService, IResponseUser} from '../core'
 import {IUser} from '../core'
 import {Observable} from 'rxjs'
 
@@ -13,7 +13,8 @@ export class AuthenticationFormComponent{
     email:string
     password:string
     authenticationType:string
-    currentUser:Observable<IUser>
+    currentUser:IResponseUser
+    authenticationForm
 
     constructor(private route:ActivatedRoute,
         private authenticationService:AuthenticationService,
@@ -26,15 +27,25 @@ export class AuthenticationFormComponent{
 
     authenticate(formValues){
         this.authenticationService.authenticateUser(this.authenticationType,formValues).subscribe((data => {
-            console.log(data)
+            this.currentUser = data
+            this.authenticationService.currentUser = data
             console.log('user authenticated')
+            console.log(this.currentUser)
+            this.authenticationService.loginUser()
             this.router.navigate(['/'])
 
-        } ))
-
-       this.currentUser = this.authenticationService.getCurrentUser()
-       console.log(this.currentUser)
+        } ),
+        error=>{
+            console.log(error)
+        }) 
         
+    }
+    isAuthenticated(){
+       if (this.authenticationService.isUserLoggedIn()){
+           return true          
+       }
+       return false
+
     }
           
 

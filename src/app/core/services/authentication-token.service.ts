@@ -6,6 +6,7 @@ export class AuthenticationTokenService{
         return localStorage['jwtToken']
     }
     setToken(token:string){
+        console.log(token)
         localStorage['jwtToken'] = token
     }
     removeToken(){

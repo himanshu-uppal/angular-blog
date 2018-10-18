@@ -4,7 +4,8 @@ import {FormsModule} from '@angular/forms'
 
 import {AuthenticationFormComponent} from './authentication-form.component'
 import {AuthenticationRoutingModule} from './authentication-routing.module'
-import {AuthenticationService} from '../core'
+import {AuthenticationService,AuthenticationTokenService} from '../core'
+
 
 @NgModule({
     declarations:[
@@ -15,7 +16,7 @@ import {AuthenticationService} from '../core'
         FormsModule
     ],
     exports:[],
-    providers:[AuthenticationService]
+    providers:[AuthenticationService,AuthenticationTokenService]
 
 })
 export class AuthenticationModule{
