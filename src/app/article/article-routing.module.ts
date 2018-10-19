@@ -5,10 +5,12 @@ import {Routes,RouterModule} from '@angular/router'
 import { ArticleCreateComponent } from './article-create.component';
 import { ArticleUpdateComponent } from './article-update.component';
 import { ArticleResolverService } from './article-resolver.service';
+import { ArticleComponent } from './article.component';
 
 const routes:Routes = [
-    {path:'',component:ArticleCreateComponent},
-    {path:':slug',component:ArticleUpdateComponent,resolve:{article:ArticleResolverService}}
+    {path:'new',component:ArticleCreateComponent},
+    {path:'edit/:slug',component:ArticleUpdateComponent,resolve:{article:ArticleResolverService}}
+    
 ]
 @NgModule({
     imports:[CommonModule,

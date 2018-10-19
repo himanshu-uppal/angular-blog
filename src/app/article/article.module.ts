@@ -6,9 +6,10 @@ import {ArticleRoutingModule} from './article-routing.module'
 import {FormsModule} from '@angular/forms'
 import {ArticleService} from '../core'
 import {ArticleResolverService} from './article-resolver.service'
+import {ArticleComponent} from './article.component'
 
 @NgModule({
-    declarations:[ArticleCreateComponent,ArticleUpdateComponent],
+    declarations:[ArticleCreateComponent,ArticleUpdateComponent,ArticleComponent],
     imports:[CommonModule,ArticleRoutingModule,FormsModule],
     providers:[ArticleService,ArticleResolverService]
 
