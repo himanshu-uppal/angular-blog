@@ -45,7 +45,7 @@ export class AuthenticationService{
     }
     isAuthenticated(){
         if(this.authenticationTokenService.getToken()){
-            return true        }
+            return true       }
         
         return false
     }

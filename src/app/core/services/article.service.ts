@@ -37,8 +37,6 @@ export class ArticleService{
           let url = 'https://conduit.productionready.io/api/articles/'+slug
 
           return this.http.get<IArticle>(url,options)
-
-
     }
 
     updateArticle(articleValues:any,authorizationToken):Observable<IArticle>{

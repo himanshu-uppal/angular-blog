@@ -11,7 +11,7 @@ export class HeaderComponent implements OnInit{
     constructor(private authenticationService:AuthenticationService){}
 
     ngOnInit(){
-        this.isAuthenticated =this.authenticationService.isAuthenticated()
+        this.isAuthenticated = this.authenticationService.isAuthenticated()
     }
     
 }
