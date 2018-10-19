@@ -15,12 +15,7 @@ export class ArticleUpdateComponent implements OnInit{
         private route:ActivatedRoute){}
 
     ngOnInit(){
-        console.log(this.route.snapshot.params['slug'])
-         this.articleService.getArticle(this.route.snapshot.params['slug']).subscribe(data=>{
-            console.log('article =')
-             console.log(data)
-             this.article = data
-         })
+        this.article = this.route.snapshot.data['article']        
     }
 
     updateArticle(){
