@@ -9,8 +9,8 @@ import { ArticleComponent } from './article.component';
 
 const routes:Routes = [
     {path:'new',component:ArticleCreateComponent},
-    {path:'edit/:slug',component:ArticleUpdateComponent,resolve:{article:ArticleResolverService}}
-    
+    {path:'edit/:slug',component:ArticleUpdateComponent,resolve:{article:ArticleResolverService}},
+    {path:':slug',component:ArticleComponent,resolve:{article:ArticleResolverService}}
 ]
 @NgModule({
     imports:[CommonModule,
