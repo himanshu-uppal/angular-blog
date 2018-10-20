@@ -3,11 +3,14 @@ import { CommonModule } from '@angular/common';
 
 import {RouterModule,Routes} from '@angular/router'
 import { HomeComponent } from './home.component';
-import {HomeArticleListResolver} from './home-resolver.service'
+import {HomeArticleListResolver} from './home-article-resolver.service'
+import { HomeTagsResolver } from './home-tags-resolver.service';
 
 
 const routes:Routes = [  
-    {path:'',component:HomeComponent,resolve:{articles:HomeArticleListResolver}}
+    {path:'',component:HomeComponent,resolve:{articles:HomeArticleListResolver,
+                                              tags:HomeTagsResolver}
+                                            }
 ]
 
 @NgModule({

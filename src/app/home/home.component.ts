@@ -8,6 +8,7 @@ import {Router} from '@angular/router'
 import {map} from 'rxjs/operators'
 
 
+
 @Component({
     selector:'app-home-page',
     templateUrl:'./home.component.html'
@@ -16,6 +17,7 @@ export class HomeComponent implements OnInit{
     articles:IArticles
     allArticles:Array<IArticle>
     isAuthenticated:boolean
+    tags:Array<string>
     
     constructor(private route:ActivatedRoute,private authenticationService:AuthenticationService,private router:Router){}
 
@@ -23,6 +25,7 @@ export class HomeComponent implements OnInit{
         this.articles = this.route.snapshot.data['articles']
         this.allArticles = this.articles.articles
         this.isAuthenticated = this.authenticationService.isAuthenticated()
+        this.tags = this.route.snapshot.data['tags'].tags
        
     }  
     
