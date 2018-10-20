@@ -4,3 +4,8 @@ ng generate module app-routing --flat --module=app
 
 ---Lazy Loading Tips ----
 Dont ever include Lazy load module in app module
+
+
+------ Configuring Materialize css ------
+npm install --save ngx-materialize
+npm install --save @mdi/font
