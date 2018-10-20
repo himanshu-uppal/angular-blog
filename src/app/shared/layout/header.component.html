@@ -3,11 +3,11 @@
         <div class="nav-wrapper">
           <a routerLink="/" class="brand-logo">Logo</a>
           <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li><a routerLink="/" >Home </a></li>
-            <li *ngIf="!isAuthenticated"><a routerLink="/login" >Sign in </a></li>
-            <li *ngIf="!isAuthenticated"><a routerLink="/register" >Sign Up </a></li>
-            <li *ngIf="isAuthenticated"><a routerLink="/logout" >Sign out </a></li>
-            <li *ngIf="isAuthenticated"><a routerLink="/articles/new" >Create Article </a></li>
+            <li><a routerLink="/" routerLinkActive="link-active" [routerLinkActiveOptions]="{exact:true}">Home </a></li>
+            <li *ngIf="!isAuthenticated"><a routerLink="/login" routerLinkActive="link-active" [routerLinkActiveOptions]="{exact:true}">Sign in </a></li>
+            <li *ngIf="!isAuthenticated"><a routerLink="/register" routerLinkActive="link-active" [routerLinkActiveOptions]="{exact:true}" >Sign Up </a></li>
+            <li *ngIf="isAuthenticated"><a routerLink="/logout" routerLinkActive="link-active" [routerLinkActiveOptions]="{exact:true}">Sign out </a></li>
+            <li *ngIf="isAuthenticated"><a routerLink="/articles/new" routerLinkActive="link-active" [routerLinkActiveOptions]="{exact:true}">Create Article </a></li>
           </ul>
         </div>
       </nav>
