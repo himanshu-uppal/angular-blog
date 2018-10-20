@@ -32,10 +32,6 @@ export class HomeComponent implements OnInit{
    
     
     
-    logout(){
-        this.authenticationService.logoutUser()
-        console.log('user logged out')
-        this.router.navigate([''])
-    }
+    
 
 }
