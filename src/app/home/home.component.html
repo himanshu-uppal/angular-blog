@@ -1,22 +1,33 @@
-    <div *ngFor="let article of allArticles" >
-        ------------
-        <br>
-        <a [routerLink]="['/articles', article.slug]"><h5>Title:{{article.title}}</h5></a>
-        <h5>Slug:{{article.slug}}</h5>
-        <h5>Description:{{article.description}}</h5>
-        <h5>Body:{{article.body}}</h5>
-        <h5>Author:{{article.author.username}}</h5>
-        <h5>Tag List:{{article.taglist}}</h5>
-        <br>
-        -------------
-        
-    </div>
-
-    <div>
-        <div *ngIf="isAuthenticated">
-            <button (click)="logout()">Log Out</button>
+    <div class="row">
+        <div class="col s12 m12 l8">
+                <div *ngFor="let article of allArticles" >
+                        ------------
+                        <br>
+                        <a [routerLink]="['/articles', article.slug]"><h5>Title:{{article.title}}</h5></a>
+                        <h5>Slug:{{article.slug}}</h5>
+                        <h5>Description:{{article.description}}</h5>
+                        <h5>Body:{{article.body}}</h5>
+                        <h5>Author:{{article.author.username}}</h5>
+                        <h5>Tag List:{{article.taglist}}</h5>
+                        <br>
+                        -------------
+                        
+                    </div>
         </div>
-      
-        
+        <div class="col s12 m12 l4">
+                <div>
+                        <div *ngIf="isAuthenticated">
+                            <button (click)="logout()">Log Out</button>
+                        </div>
+                      
+                        
+                    </div>
+                    <div>
+                        <h2>Tags</h2>
+                    </div>
+        </div>
     </div>
+ 
+
+   
     
