@@ -1,6 +1,13 @@
------<span><a routerLink="/" >Home </a>-----</span>
-<span *ngIf="!isAuthenticated"><a  routerLink="/login" >Sign in </a>-----</span>
-<span *ngIf="!isAuthenticated"><a routerLink="/register" >Sign Up </a>-----</span>
-<span *ngIf="isAuthenticated"><a routerLink="/logout" >Sign out </a>-----</span>
-<span *ngIf="isAuthenticated"><a routerLink="/articles/new" >Create Article </a>-----</span>
-<!-- <span><a routerLink="/settings" >Settings</a></span> -->
+
+<nav>
+        <div class="nav-wrapper">
+          <a routerLink="/" class="brand-logo">Logo</a>
+          <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li><a routerLink="/" >Home </a></li>
+            <li *ngIf="!isAuthenticated"><a routerLink="/login" >Sign in </a></li>
+            <li *ngIf="!isAuthenticated"><a routerLink="/register" >Sign Up </a></li>
+            <li *ngIf="isAuthenticated"><a routerLink="/logout" >Sign out </a></li>
+            <li *ngIf="isAuthenticated"><a routerLink="/articles/new" >Create Article </a></li>
+          </ul>
+        </div>
+      </nav>
