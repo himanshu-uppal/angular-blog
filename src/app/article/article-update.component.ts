@@ -2,12 +2,15 @@ import {Component, OnInit} from '@angular/core'
 import {ArticleService, IArticle} from '../core'
 import {AuthenticationService} from '../core'
 import {Router,ActivatedRoute} from '@angular/router'
+import { FormControl } from '@angular/forms';
 
 @Component({
 templateUrl:'./article-update.component.html'
 })
 export class ArticleUpdateComponent implements OnInit{
     article:any
+    updateArticleForm:FormControl
+
 
     constructor(private articleService:ArticleService,
         private authenticationService:AuthenticationService,
@@ -19,6 +22,7 @@ export class ArticleUpdateComponent implements OnInit{
     }
 
     updateArticle(){
+               
         this.articleService.updateArticle(this.article,this.authenticationService.getCurrentUserToken()).subscribe(
             data=>{
                 console.log(data)
@@ -32,5 +36,7 @@ export class ArticleUpdateComponent implements OnInit{
         )
 
     }
+
+    
 
 }
