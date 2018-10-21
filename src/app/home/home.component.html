@@ -18,7 +18,10 @@
                
                     <div>
                         <h4>Tags</h4>
-                        {{tags}}
+                        <div *ngFor="let tag of tags">
+                                {{tag}}
+                        </div>
+                       
                     </div>
         </div>
     </div>
