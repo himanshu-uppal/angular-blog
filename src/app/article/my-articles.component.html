@@ -13,6 +13,7 @@
         <h5>Tag List:{{article.taglist}}</h5>
         <br>
         <a [routerLink]="['/articles/edit', article.slug]" class="btn ">Update Article</a>
+        <button (click)="deleteArticle(article.slug)" class="btn ">Delete Article</button>
         ------------
 
         <br>

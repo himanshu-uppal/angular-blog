@@ -3,11 +3,12 @@ import {IArticles, IArticle, IResponseUser} from '../models'
 import {Observable} from 'rxjs'
 import {HttpClient, HttpHeaders} from '@angular/common/http'
 import { AuthenticationService } from './authentication.service';
+import { AuthenticationTokenService } from './authentication-token.service';
 
 @Injectable()
 export class ArticleService{
    
-    constructor(private http:HttpClient,private authenticationService:AuthenticationService){ }
+    constructor(private http:HttpClient,private authenticationService:AuthenticationService,private authenticationTokenService:AuthenticationTokenService){ }
    
     getArticles():Observable<IArticles>{
         return this.http.get<IArticles>('https://conduit.productionready.io/api/articles')
@@ -71,6 +72,16 @@ export class ArticleService{
             let author = username             
             let url = 'https://conduit.productionready.io/api/articles?author='+author
             return this.http.get<IArticles>(url);            
+    }
+
+    deleteArticle(slug){
+        let authorizationToken = this.authenticationTokenService.getToken()
+        console.log(authorizationToken)
+        let options = {headers:new HttpHeaders({'Content-Type':'application/json','Authorization': `Token ${authorizationToken}`})}
+        let url = 'https://conduit.productionready.io/api/articles/'+slug
+        console.log(url)
+        return this.http.delete(url,options)
+
     }
 
 }
