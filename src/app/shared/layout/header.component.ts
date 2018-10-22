@@ -19,5 +19,13 @@ export class HeaderComponent implements OnInit{
         console.log('user logged out')
         this.router.navigate([''])
     }
+
+    isUserLoggedIn(){
+        if(this.authenticationService.getCurrentUserToken){
+            return true
+        }
+        return false
+        
+    }
     
 }

@@ -27,10 +27,10 @@ export class HomeComponent implements OnInit{
         this.allArticles = this.articles.articles
         this.isAuthenticated = this.authenticationService.isAuthenticated()
         this.tags = this.route.snapshot.data['tags'].tags
-        if(this.isAuthenticated){
-            this.feed = this.route.snapshot.data['feed'].articles
-            console.log(this.feed)
-        }
+        // if(this.isAuthenticated){
+        //     this.feed = this.route.snapshot.data['feed'].articles
+        //     console.log(this.feed)
+        // }
         
               
     }  

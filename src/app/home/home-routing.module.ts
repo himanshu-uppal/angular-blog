@@ -10,8 +10,8 @@ import {HomeFeedResolver} from './home-feed-resolver.service'
 
 const routes:Routes = [  
     {path:'',component:HomeComponent,resolve:{articles:HomeArticleListResolver,
-                                              tags:HomeTagsResolver,
-                                              feed:HomeFeedResolver
+                                              tags:HomeTagsResolver
+                                              // feed:HomeFeedResolver
                                             }
                                             }
 ]
