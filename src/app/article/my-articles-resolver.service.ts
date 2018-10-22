@@ -5,22 +5,33 @@ import {map} from 'rxjs/operators'
 
  @Injectable()
 export class MyArticlesResolver implements Resolve<any>{
-    //articles:IArticles
+    articles:IArticles
 
     username:string
     constructor(private articleService:ArticleService,private authenticationService:AuthenticationService){
      }
-    resolve(){       
+    resolve(){ 
+
         this.authenticationService.getCurrentUser().subscribe((data:IResponseUser)=>{
             this.username = data.user.username;
-            this.setCurrentUser(this.username)
-            
+           // this.setCurrentUser(this.username)
+            this.articleService.getMyArticles(this.username).subscribe((data)=>{
+                console.log(data)
+                this.articles = data
+                return data;
+            })
+           
         })
-        console.log(this.username)
+        setTimeout(function(){
+            console.log('waiting')
+
+        },1000)
+        console.log(this.articles)
+        
         
      }
-     setCurrentUser(username:string){
-         console.log(username)
-         return this.articleService.getMyArticles(username).pipe(map(articles => articles))              
-     }
+    //  setCurrentUser(username:string){
+    //      console.log(username)
+    //      return             
+    //  }
  } 
