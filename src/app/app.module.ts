@@ -11,11 +11,13 @@ import {ArticleService,AuthenticationService} from './core'
 import {HttpClientModule} from '@angular/common/http'
 import {AuthenticationModule} from './authentication/authentication.module'
 
+
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+   
   ],
   imports: [
     BrowserModule,

@@ -12,6 +12,7 @@ import {MyArticlesResolver} from './my-articles-resolver.service'
 import {MyArticlesComponent} from './my-articles.component'
 
 
+
 @NgModule({
     declarations:[ArticleCreateComponent,ArticleUpdateComponent,ArticleComponent,MyArticlesComponent],
     imports:[CommonModule,ArticleRoutingModule,FormsModule],
