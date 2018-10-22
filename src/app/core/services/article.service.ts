@@ -76,10 +76,10 @@ export class ArticleService{
 
     deleteArticle(slug){
         let authorizationToken = this.authenticationTokenService.getToken()
-        console.log(authorizationToken)
+       // console.log(authorizationToken)
         let options = {headers:new HttpHeaders({'Content-Type':'application/json','Authorization': `Token ${authorizationToken}`})}
         let url = 'https://conduit.productionready.io/api/articles/'+slug
-        console.log(url)
+       // console.log(url)
         return this.http.delete(url,options)
 
     }

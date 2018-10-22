@@ -12,7 +12,7 @@
         <h5>Author:{{article.author.username}}</h5>
         <h5>Tag List:{{article.taglist}}</h5>
         <br>
-        <a [routerLink]="['/articles/edit', article.slug]" class="btn ">Update Article</a>
+        <a [routerLink]="['/articles/edit', article.slug]" class="btn ">Update Article</a><br><br>
         <button (click)="deleteArticle(article.slug)" class="btn ">Delete Article</button>
         ------------
 

@@ -65,16 +65,5 @@ export class AuthenticationService{
         let options = {headers:new HttpHeaders({'Content-Type':'application/json','Authorization': `Token ${authorizationToken}`})}
         let url = 'https://conduit.productionready.io/api/user'
         return this.http.get<IResponseUser>(url,options)
-    }
-    //        getCurrentUsername(){
-    //            let currentUsername
-    //         let authorizationToken = this.authenticationTokenService.getToken()    
-    //         let options = {headers:new HttpHeaders({'Content-Type':'application/json','Authorization': `Token ${authorizationToken}`})}
-    //         let url = 'https://conduit.productionready.io/api/user'
-    //         this.http.get<IResponseUser>(url,options).subscribe(data=>{           
-    //             currentUsername = data.user.username 
-    //             return currentUsername          
-    //         }) 
-    //  }
-    
+    } 
 }
