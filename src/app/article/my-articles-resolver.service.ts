@@ -1,15 +1,26 @@
 import {Injectable} from '@angular/core'
 import {Resolve} from '@angular/router'
-import { ArticleService } from '../core';
+import { ArticleService, IArticles, AuthenticationService, IResponseUser, IUser } from '../core';
 import {map} from 'rxjs/operators'
 
  @Injectable()
 export class MyArticlesResolver implements Resolve<any>{
-    constructor(private articleService:ArticleService){
+    //articles:IArticles
+
+    username:string
+    constructor(private articleService:ArticleService,private authenticationService:AuthenticationService){
      }
-    resolve(){
-        console.log('resolving data my articles')
-        return this.articleService.getMyArticles().pipe(map(articles =>articles))
+    resolve(){       
+        this.authenticationService.getCurrentUser().subscribe((data:IResponseUser)=>{
+            this.username = data.user.username;
+            this.setCurrentUser(this.username)
+            
+        })
+        console.log(this.username)
         
+     }
+     setCurrentUser(username:string){
+         console.log(username)
+         return this.articleService.getMyArticles(username).pipe(map(articles => articles))              
      }
  } 

@@ -7,10 +7,7 @@ import { AuthenticationService } from './authentication.service';
 @Injectable()
 export class ArticleService{
    
-    constructor(private http:HttpClient,private authenticationService:AuthenticationService){
-       
-
-    }
+    constructor(private http:HttpClient,private authenticationService:AuthenticationService){ }
    
     getArticles():Observable<IArticles>{
         return this.http.get<IArticles>('https://conduit.productionready.io/api/articles')
@@ -70,20 +67,10 @@ export class ArticleService{
         return this.http.get<IArticles>(url,options)
     }
 
-    getMyArticles(){  
-        let currentUser:IResponseUser  
-        this.authenticationService.getCurrentUser().subscribe(data=>{
-            currentUser = data
-            console.log('current user')
-            console.log(currentUser)
-            let author =currentUser.user.username
-            let url = 'https://conduit.productionready.io/api/articles?author='+''
-            return this.http.get<IArticles>(url); 
-
-        })       
-        
-
-             
+    getMyArticles(username:string){
+            let author = username             
+            let url = 'https://conduit.productionready.io/api/articles?author='+author
+            return this.http.get<IArticles>(url);            
     }
 
 }

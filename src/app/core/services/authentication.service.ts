@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core'
 import {HttpClient,HttpHeaders} from '@angular/common/http'
-import {IUser,IResponseUser} from '../models'
+import {IResponseUser} from '../models'
 import { Observable } from 'rxjs';
 import {AuthenticationTokenService} from './authentication-token.service'
 
@@ -9,10 +9,8 @@ export class AuthenticationService{
     currentUser:IResponseUser
     constructor(private http:HttpClient, private authenticationTokenService:AuthenticationTokenService){}
 
-    ngOnInit(){
-       // getCurrentUser()
-        
-    }
+    
+    
 
     authenticateUser(authenticationType:string,userValues:any):Observable<IResponseUser>{
         let options = {headers:new HttpHeaders({'Content-Type':'application/json'})}
@@ -50,7 +48,8 @@ export class AuthenticationService{
     }
     isAuthenticated(){
         if(this.authenticationTokenService.getToken()){
-            return true       }
+            return true       
+        }
         
         return false
     }
@@ -60,16 +59,22 @@ export class AuthenticationService{
 
     getCurrentUserToken(){
         return this.authenticationTokenService.getToken()
-
     }
-
-    
-
     getCurrentUser(){
         let authorizationToken = this.authenticationTokenService.getToken()    
         let options = {headers:new HttpHeaders({'Content-Type':'application/json','Authorization': `Token ${authorizationToken}`})}
         let url = 'https://conduit.productionready.io/api/user'
-        return   this.http.get<IResponseUser>(url,options)
+        return this.http.get<IResponseUser>(url,options)
     }
+    //        getCurrentUsername(){
+    //            let currentUsername
+    //         let authorizationToken = this.authenticationTokenService.getToken()    
+    //         let options = {headers:new HttpHeaders({'Content-Type':'application/json','Authorization': `Token ${authorizationToken}`})}
+    //         let url = 'https://conduit.productionready.io/api/user'
+    //         this.http.get<IResponseUser>(url,options).subscribe(data=>{           
+    //             currentUsername = data.user.username 
+    //             return currentUsername          
+    //         }) 
+    //  }
     
 }
