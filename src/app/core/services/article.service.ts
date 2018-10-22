@@ -24,6 +24,8 @@ export class ArticleService{
               tagList: []
             }
           }
+          console.log('sent article')
+          console.log(article)
 
        return this.http.post<IArticle>('https://conduit.productionready.io/api/articles',article,options)
     }
@@ -62,6 +64,15 @@ export class ArticleService{
         let options = {headers:new HttpHeaders({'Content-Type':'application/json','Authorization': `Token ${authorizationToken}`})}
         let url = 'https://conduit.productionready.io/api/articles/feed'
         return this.http.get<IArticles>(url,options)
+    }
+
+    getMyArticles(){     
+
+        let author = ''
+
+        let url = 'https://conduit.productionready.io/api/articles?author='+author
+        return this.http.get<IArticles>(url)
+        
     }
 
 }

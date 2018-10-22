@@ -8,11 +8,18 @@ import {ArticleService} from '../core'
 import {ArticleResolverService} from './article-resolver.service'
 import {ArticleComponent} from './article.component'
 import {AuthenticationGuardService} from '../core'
+import {MyArticlesResolver} from './my-articles-resolver.service'
+import {MyArticlesComponent} from './my-articles.component'
+
 
 @NgModule({
-    declarations:[ArticleCreateComponent,ArticleUpdateComponent,ArticleComponent],
+    declarations:[ArticleCreateComponent,ArticleUpdateComponent,ArticleComponent,MyArticlesComponent],
     imports:[CommonModule,ArticleRoutingModule,FormsModule],
-    providers:[ArticleService,ArticleResolverService,AuthenticationGuardService]
+    providers:[ArticleService,
+        ArticleResolverService,
+        AuthenticationGuardService,
+        MyArticlesResolver
+    ]
 
 })
 export class ArticleModule{
