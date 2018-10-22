@@ -8,7 +8,7 @@ export class MyArticlesResolver implements Resolve<any>{
     constructor(private articleService:ArticleService){
      }
     resolve(){
-        console.log('resolving data')
+        console.log('resolving data my articles')
         return this.articleService.getMyArticles().pipe(map(articles =>articles))
         
      }

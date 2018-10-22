@@ -9,7 +9,7 @@
             <li *ngIf="!isAuthenticated"><a routerLink="/register" routerLinkActive="link-active" [routerLinkActiveOptions]="{exact:true}" >Sign Up </a></li>
             <li *ngIf="isAuthenticated"><a (click)="logout()" routerLinkActive="link-active" [routerLinkActiveOptions]="{exact:true}">Sign out </a></li>
             <li *ngIf="isAuthenticated"><a routerLink="/articles/new" routerLinkActive="link-active" [routerLinkActiveOptions]="{exact:true}">Create Article </a></li>
-            <li *ngIf="isAuthenticated"><a routerLink="/articles/my-articles" routerLinkActive="link-active" [routerLinkActiveOptions]="{exact:true}">My Articles </a></li>
+            <li *ngIf="isAuthenticated"><a routerLink="/articles/myarticles" routerLinkActive="link-active" [routerLinkActiveOptions]="{exact:true}">My Articles </a></li>
           </ul>
         </div>
       </nav>

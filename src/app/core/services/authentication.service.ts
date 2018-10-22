@@ -9,6 +9,11 @@ export class AuthenticationService{
     currentUser:IResponseUser
     constructor(private http:HttpClient, private authenticationTokenService:AuthenticationTokenService){}
 
+    ngOnInit(){
+       // getCurrentUser()
+        
+    }
+
     authenticateUser(authenticationType:string,userValues:any):Observable<IResponseUser>{
         let options = {headers:new HttpHeaders({'Content-Type':'application/json'})}
         if(authenticationType == 'register'){
@@ -61,8 +66,10 @@ export class AuthenticationService{
     
 
     getCurrentUser(){
-        return this.http.get<IUser>('https://conduit.productionready.io/api/user')
-
+        let authorizationToken = this.authenticationTokenService.getToken()    
+        let options = {headers:new HttpHeaders({'Content-Type':'application/json','Authorization': `Token ${authorizationToken}`})}
+        let url = 'https://conduit.productionready.io/api/user'
+        return   this.http.get<IResponseUser>(url,options)
     }
     
 }

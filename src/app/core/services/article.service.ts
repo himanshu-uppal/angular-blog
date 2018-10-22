@@ -1,13 +1,17 @@
 import {Injectable} from '@angular/core'
-import {IArticles, IArticle} from '../models'
+import {IArticles, IArticle, IResponseUser} from '../models'
 import {Observable} from 'rxjs'
 import {HttpClient, HttpHeaders} from '@angular/common/http'
+import { AuthenticationService } from './authentication.service';
 
 @Injectable()
 export class ArticleService{
-    constructor(private http:HttpClient){
+   
+    constructor(private http:HttpClient,private authenticationService:AuthenticationService){
+       
 
     }
+   
     getArticles():Observable<IArticles>{
         return this.http.get<IArticles>('https://conduit.productionready.io/api/articles')
     }
@@ -66,13 +70,20 @@ export class ArticleService{
         return this.http.get<IArticles>(url,options)
     }
 
-    getMyArticles(){     
+    getMyArticles(){  
+        let currentUser:IResponseUser  
+        this.authenticationService.getCurrentUser().subscribe(data=>{
+            currentUser = data
+            console.log('current user')
+            console.log(currentUser)
+            let author =currentUser.user.username
+            let url = 'https://conduit.productionready.io/api/articles?author='+''
+            return this.http.get<IArticles>(url); 
 
-        let author = ''
-
-        let url = 'https://conduit.productionready.io/api/articles?author='+author
-        return this.http.get<IArticles>(url)
+        })       
         
+
+             
     }
 
 }

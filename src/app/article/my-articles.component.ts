@@ -3,7 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { IArticles } from '../core';
 
 @Component({
-    templateUrl:'./article.component.html'
+    templateUrl:'./my-articles.component.html'
 })
 export class MyArticlesComponent{
     articles:IArticles
@@ -12,6 +12,7 @@ export class MyArticlesComponent{
     ngOnInit(){
 
         this.articles = this.route.snapshot.data['articles']
+        console.log('myarticles')
         console.log(this.articles)
     }
 

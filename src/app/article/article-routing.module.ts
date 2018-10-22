@@ -13,8 +13,9 @@ import {MyArticlesComponent} from './my-articles.component'
 const routes:Routes = [
     {path:'new',component:ArticleCreateComponent,canActivate:[AuthenticationGuardService]},
     {path:'edit/:slug',component:ArticleUpdateComponent,resolve:{article:ArticleResolverService},canActivate:[AuthenticationGuardService]},
-    {path:':slug',component:ArticleComponent,resolve:{article:ArticleResolverService}},
-    {path:'my-articles',component:MyArticlesComponent,resolve:{articles:MyArticlesResolver}}   
+    {path:'myarticles',component:MyArticlesComponent,resolve:{articles:MyArticlesResolver}},
+    {path:':slug',component:ArticleComponent,resolve:{article:ArticleResolverService}}
+      
 ]
 @NgModule({
     imports:[CommonModule,
