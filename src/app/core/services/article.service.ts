@@ -13,8 +13,6 @@ export class ArticleService{
     }
 
     saveArticle(articleValues:IArticle,authorizationToken):Observable<IArticle>{
-       
-
 
         let options = {headers:new HttpHeaders({'Content-Type':'application/json','Authorization': `Token ${authorizationToken}`})}
 
@@ -39,7 +37,7 @@ export class ArticleService{
           return this.http.get<IArticle>(url,options)
     }
 
-    updateArticle(articleValues:any,authorizationToken):Observable<IArticle>{
+    updateArticle(articleValues:any,authorizationToken:string):Observable<IArticle>{
         let options = {headers:new HttpHeaders({'Content-Type':'application/json','Authorization': `Token ${authorizationToken}`})}
 
         let article = {
@@ -58,6 +56,12 @@ export class ArticleService{
           return this.http.put<IArticle>(url,article,options)
 
 
+    }
+
+    getFeed(authorizationToken:string){
+        let options = {headers:new HttpHeaders({'Content-Type':'application/json','Authorization': `Token ${authorizationToken}`})}
+        let url = 'https://conduit.productionready.io/api/articles/feed'
+        return this.http.get<IArticles>(url,options)
     }
 
 }

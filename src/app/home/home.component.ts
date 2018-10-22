@@ -18,6 +18,7 @@ export class HomeComponent implements OnInit{
     allArticles:Array<IArticle>
     isAuthenticated:boolean
     tags:Array<string>
+    feed:Array<IArticle>
     
     constructor(private route:ActivatedRoute,private authenticationService:AuthenticationService,private router:Router){}
 
@@ -26,8 +27,14 @@ export class HomeComponent implements OnInit{
         this.allArticles = this.articles.articles
         this.isAuthenticated = this.authenticationService.isAuthenticated()
         this.tags = this.route.snapshot.data['tags'].tags
-       
+        if(this.isAuthenticated){
+            this.feed = this.route.snapshot.data['feed'].articles
+            console.log(this.feed)
+        }
+        
+              
     }  
+
     
    
     
