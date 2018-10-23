@@ -15,7 +15,7 @@ export class AddCommentComponent{
 
     addComment(formValues){
        // console.log(this.slug)
-        let authorizationToken = this.authenticationService.getCurrentUser().subscribe(data=>{
+       this.authenticationService.getCurrentUser().subscribe(data=>{
             this.commentService.addComment(this.slug,formValues.body).subscribe(data=>{
                 this.router.navigate([''])               
                 

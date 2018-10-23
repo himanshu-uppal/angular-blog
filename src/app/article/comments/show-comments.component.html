@@ -1,5 +1,7 @@
 <div *ngFor="let comment of comments">
         Comment = {{comment.body}}
         Author ={{comment.author.username}}
-        <br>
+        <button class="btn" *ngIf="comment.author.username == commentAuthor" (click)="deleteComment(comment.id)">delete</button>
+        <br>       
+        
     </div>
