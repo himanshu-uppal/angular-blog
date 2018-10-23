@@ -1,16 +1,16 @@
 import {Injectable} from '@angular/core'
 import {HttpClient,HttpHeaders} from '@angular/common/http'
 import {IResponseUser} from '../models'
-import { Observable } from 'rxjs';
+import { Observable, ReplaySubject } from 'rxjs';
 import {AuthenticationTokenService} from './authentication-token.service'
 
 @Injectable()
 export class AuthenticationService{
     currentUser:IResponseUser
-    constructor(private http:HttpClient, private authenticationTokenService:AuthenticationTokenService){}
-
     
-    
+  private isAuthenticatedSubject = new ReplaySubject<boolean>(1);
+  public isUserAuthenticated = this.isAuthenticatedSubject.asObservable();
+    constructor(private http:HttpClient, private authenticationTokenService:AuthenticationTokenService){}   
 
     authenticateUser(authenticationType:string,userValues:any):Observable<IResponseUser>{
         let options = {headers:new HttpHeaders({'Content-Type':'application/json'})}
@@ -45,6 +45,7 @@ export class AuthenticationService{
 
     loginUser(){       
         this.authenticationTokenService.setToken(this.currentUser.user.token)
+        this.isAuthenticatedSubject.next(true);
     }
     isAuthenticated(){
         if(this.authenticationTokenService.getToken()){
@@ -55,6 +56,7 @@ export class AuthenticationService{
     }
     logoutUser(){
         this.authenticationTokenService.removeToken()
+        this.isAuthenticatedSubject.next(false);
     }
 
     getCurrentUserToken(){

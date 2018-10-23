@@ -2,8 +2,11 @@
         <article-details [article] ="article"></article-details>
    
 </div>
-<div>
+<div *ngIf="isAuthenticated">
     <add-comment [slug]="article.slug"></add-comment>
+</div>
+<div *ngIf="!isAuthenticated">
+    <a routerLink="/login">Sign In for posting comments</a>
 </div>
 <div>
     <article-comments [slug]="article.slug" [comments]="comments"></article-comments>

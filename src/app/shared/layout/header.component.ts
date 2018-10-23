@@ -12,7 +12,11 @@ export class HeaderComponent implements OnInit{
     constructor(private authenticationService:AuthenticationService,private router:Router){}
 
     ngOnInit(){
-        this.isAuthenticated = this.authenticationService.isAuthenticated()
+       this.authenticationService.isUserAuthenticated.subscribe(data=>
+            {
+                this.isAuthenticated = data
+
+            })
     }
     logout(){
         this.authenticationService.logoutUser()

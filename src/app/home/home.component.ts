@@ -39,7 +39,11 @@ export class HomeComponent implements OnInit{
             this.articles =currentData['articles']
             //this.articles = this.route.snapshot.data['articles']
             this.allArticles = this.articles.articles        
-            this.isAuthenticated = this.authenticationService.isAuthenticated()
+            this.authenticationService.isUserAuthenticated.subscribe(data=>
+                {
+                    this.isAuthenticated = data
+    
+                })
             this.tags = currentData['tags'].tags
             
           });

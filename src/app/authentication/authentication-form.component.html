@@ -3,8 +3,8 @@
         <div *ngIf="authenticationType === 'login'">Sign In</div>
        
 </h2>
-<div *ngIf="authenticationType === 'register'">Have an account?</div>
-<div *ngIf="authenticationType === 'login'">Need an account?</div>
+<div *ngIf="authenticationType === 'register'"><a routerLink="/login">Have an account?</a></div>
+<div *ngIf="authenticationType === 'login'"><a routerLink="/register">Need an account?</a></div>
 <div>
 <form #authenticationForm="ngForm" (ngSubmit)="authenticate(authenticationForm.value)" novalidate>   
         <div *ngIf="authenticationType === 'register'" class="form-group">
