@@ -4,7 +4,7 @@ import { ArticleCreateComponent } from './article-create.component';
 import {ArticleUpdateComponent} from './article-update.component'
 import {ArticleRoutingModule} from './article-routing.module'
 import {FormsModule} from '@angular/forms'
-import {ArticleService} from '../core'
+import {ArticleService,CommentService} from '../core'
 import {ArticleResolverService} from './article-resolver.service'
 import {ArticleComponent} from './article.component'
 import {AuthenticationGuardService} from '../core'
@@ -19,7 +19,8 @@ import {MyArticlesComponent} from './my-articles.component'
     providers:[ArticleService,
         ArticleResolverService,
         AuthenticationGuardService,
-        MyArticlesResolver
+        MyArticlesResolver,
+        CommentService
     ]
 
 })
