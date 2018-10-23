@@ -66,4 +66,9 @@ export class AuthenticationService{
         let url = 'https://conduit.productionready.io/api/user'
         return this.http.get<IResponseUser>(url,options)
     } 
+    getCurrentUsername(){
+        this.getCurrentUser().subscribe(data=>{
+            return data.user.username
+        })
+    }
 }

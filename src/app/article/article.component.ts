@@ -11,7 +11,7 @@ export class ArticleComponent{
     constructor(private route:ActivatedRoute){}
 
     ngOnInit(){
-
+        console.log('initialized')
         this.article  = this.route.snapshot.data['article'].article
         this.comments  = this.route.snapshot.data['comments'].comments
         //console.log(this.comments)
