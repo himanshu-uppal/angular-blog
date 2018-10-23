@@ -8,7 +8,7 @@ import {ArticleService,AuthenticationService} from '../core'
 })
 export class MyArticlesComponent{
     articles:Array<IArticle>
-    constructor(private route:ActivatedRoute,private articleService:ArticleService,private authenticationService:AuthenticationService,private router:Router){}
+    constructor(private articleService:ArticleService,private authenticationService:AuthenticationService){}
 
     ngOnInit(){
         this.authenticationService.getCurrentUser().subscribe(data=>{
@@ -17,11 +17,6 @@ export class MyArticlesComponent{
             })
         })             
     }
-    deleteArticle(slug){
-        this.articleService.deleteArticle(slug).subscribe(data=>{ 
-            this.router.navigate([''])           
-        })
-       
-    }
+  
 
 }

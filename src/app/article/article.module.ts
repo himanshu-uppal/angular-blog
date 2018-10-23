@@ -13,6 +13,8 @@ import {MyArticlesComponent} from './my-articles.component'
 import {ArticleCommentsResolver} from './article-comments-resolver.service'
 import {ShowCommentsComponent} from './comments'
 import {AddCommentComponent} from './comments'
+import {MyArticleActionsComponent} from './my-article-actions.component'
+import {ArticleDetailsComponent} from './article-details.component'
 
 
 
@@ -23,7 +25,9 @@ import {AddCommentComponent} from './comments'
         ArticleComponent,
         MyArticlesComponent,
         ShowCommentsComponent,
-        AddCommentComponent],
+        AddCommentComponent,
+        MyArticleActionsComponent,
+        ArticleDetailsComponent],
     imports:[CommonModule,ArticleRoutingModule,FormsModule],
     providers:[ArticleService,
         ArticleResolverService,
