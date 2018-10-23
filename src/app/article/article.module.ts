@@ -11,12 +11,19 @@ import {AuthenticationGuardService} from '../core'
 import {MyArticlesResolver} from './my-articles-resolver.service'
 import {MyArticlesComponent} from './my-articles.component'
 import {ArticleCommentsResolver} from './article-comments-resolver.service'
-import {ShowCommentsComponent} from './show-comments.component'
+import {ShowCommentsComponent} from './comments'
+import {AddCommentComponent} from './comments'
 
 
 
 @NgModule({
-    declarations:[ArticleCreateComponent,ArticleUpdateComponent,ArticleComponent,MyArticlesComponent,ShowCommentsComponent],
+    declarations:[
+        ArticleCreateComponent,
+        ArticleUpdateComponent,
+        ArticleComponent,
+        MyArticlesComponent,
+        ShowCommentsComponent,
+        AddCommentComponent],
     imports:[CommonModule,ArticleRoutingModule,FormsModule],
     providers:[ArticleService,
         ArticleResolverService,

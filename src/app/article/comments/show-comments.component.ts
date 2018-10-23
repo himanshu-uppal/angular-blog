@@ -1,5 +1,5 @@
 import {Component, Input} from '@angular/core'
-import { ISingleComment } from '../core';
+import { ISingleComment } from '../../core';
 @Component({
     selector:'article-comments',
     templateUrl:'./show-comments.component.html'
@@ -7,7 +7,4 @@ import { ISingleComment } from '../core';
 })
 export class ShowCommentsComponent{
     @Input() comments:ISingleComment[]
-
-
-
 }
