@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core'
-import {Resolve} from '@angular/router'
+import {Resolve, ActivatedRouteSnapshot} from '@angular/router'
 import { ArticleService } from '../core';
 import {map} from 'rxjs/operators'
 
@@ -7,9 +7,17 @@ import {map} from 'rxjs/operators'
 export class HomeArticleListResolver implements Resolve<any>{
     constructor(private articleService:ArticleService){
      }
-    resolve(){
+    resolve(route:ActivatedRouteSnapshot){
         console.log('resolving data')
-        return this.articleService.getArticles().pipe(map(articles =>articles))
+        let tag:string
+        let filter:string
+        if(route.params['tag']){
+            
+            tag = route.params['tag']
+            filter = '?tag='+tag
+            //console.log(filter)
+        }
+        return this.articleService.getArticles(filter).pipe(map(articles =>articles))
         
      }
  } 

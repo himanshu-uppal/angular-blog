@@ -13,7 +13,11 @@ const routes:Routes = [
                                               tags:HomeTagsResolver
                                               // feed:HomeFeedResolver
                                             }
-                                            }
+                                            },
+    {path:'tags/:tag',component:HomeComponent,resolve:{articles:HomeArticleListResolver,
+                                              tags:HomeTagsResolver
+                                              // feed:HomeFeedResolver
+                                            }}
 ]
 
 @NgModule({

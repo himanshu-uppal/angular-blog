@@ -21,27 +21,55 @@ export class HomeComponent implements OnInit{
     feed:Array<IArticle>
     paginateLinks:Array<number> = []
     currentLink:number =0
+
     
-    constructor(private articleService:ArticleService,private route:ActivatedRoute,private authenticationService:AuthenticationService,private router:Router){}
+    constructor(private articleService:ArticleService,private route:ActivatedRoute,private authenticationService:AuthenticationService,private router:Router){
+        console.log('home page constructed')
+    }
 
     ngOnInit(){
-        this.articles = this.route.snapshot.data['articles']
-        this.allArticles = this.articles.articles        
-        this.isAuthenticated = this.authenticationService.isAuthenticated()
-        this.tags = this.route.snapshot.data['tags'].tags
+        console.log('home page initialized')
+        this.populateValues() 
+      
+    }  
+    populateValues(){
+
+
+        this.route.data.subscribe((currentData) => {
+            this.articles =currentData['articles']
+            //this.articles = this.route.snapshot.data['articles']
+            this.allArticles = this.articles.articles        
+            this.isAuthenticated = this.authenticationService.isAuthenticated()
+            this.tags = currentData['tags'].tags
+            
+          });
+
+          for(let i = 0;i<this.articles.articlesCount/20;i++){
+            this.paginateLinks.push(i)
+        } 
+
+
+
+        // this.articles = this.route.snapshot.data['articles']
+        // this.allArticles = this.articles.articles        
+        // this.isAuthenticated = this.authenticationService.isAuthenticated()
+        // this.tags = this.route.snapshot.data['tags'].tags
         // if(this.isAuthenticated){
         //     this.feed = this.route.snapshot.data['feed'].articles
         //     console.log(this.feed)
         // }   
-        for(let i = 0;i<this.articles.articlesCount/20;i++){
-            this.paginateLinks.push(i)
-        }    
       
-    }  
+    }
     showClickedPage(paginateNumber){
         console.log('paginate to = '+paginateNumber)
         console.log(this.articles)
         let filter = '?offset='+paginateNumber*20+'&limit='+'20'
+       
+        if(this.route.snapshot.paramMap.get('tag')){            
+            filter = filter +'&tag='+this.route.snapshot.paramMap.get('tag')
+            //console.log(filter)
+        }
+       
         this.articleService.getArticles(filter).subscribe(data=>{
             this.articles = data
             this.allArticles = this.articles.articles

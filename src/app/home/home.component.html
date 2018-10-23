@@ -18,7 +18,7 @@
             </div>
             <div>
                 <ul class="pagination">
-                    <li><a [class.activePaginate]="paginateLink == currentLink" *ngFor="let paginateLink of paginateLinks" (click)="showClickedPage(paginateLink)">{{paginateLink}}</a></li>
+                    <li><a [class.activePaginate]="paginateLink == currentLink" *ngFor="let paginateLink of paginateLinks" (click)="showClickedPage(paginateLink)">{{paginateLink+1}}</a></li>
                 </ul>                
             </div>
             <!-- <div *ngIf="isAuthenticated">
@@ -58,7 +58,7 @@
                         <h4>Tags</h4>
                         
                         <div *ngFor="let tag of tags">
-                                {{tag}}
+                               <a [routerLink]="['/tags',tag]">{{tag}}</a> 
                         </div>
                        
                     </div>
