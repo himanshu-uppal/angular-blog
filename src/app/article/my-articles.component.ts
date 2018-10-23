@@ -18,9 +18,10 @@ export class MyArticlesComponent{
         })             
     }
     deleteArticle(slug){
-        this.articleService.deleteArticle(slug).subscribe(data=>{
-            this.router.navigateByUrl('/')
+        this.articleService.deleteArticle(slug).subscribe(data=>{ 
+            this.router.navigate([''])           
         })
+       
     }
 
 }
