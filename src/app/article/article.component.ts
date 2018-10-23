@@ -1,19 +1,19 @@
 import {Component} from '@angular/core'
 import { ActivatedRoute } from '@angular/router';
-import { IArticle, IMultipleComments } from '../core';
+import { IArticle, IMultipleComments, ISingleComment } from '../core';
 
 @Component({
     templateUrl:'./article.component.html'
 })
 export class ArticleComponent{
     article:IArticle
-    comments:IMultipleComments
+    comments:ISingleComment[]
     constructor(private route:ActivatedRoute){}
 
     ngOnInit(){
 
         this.article  = this.route.snapshot.data['article'].article
-        this.comments  = this.route.snapshot.data['comments']
+        this.comments  = this.route.snapshot.data['comments'].comments
         //console.log(this.comments)
     }
 
