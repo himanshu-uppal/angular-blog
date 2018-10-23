@@ -10,6 +10,7 @@ import {ArticleComponent} from './article.component'
 import {AuthenticationGuardService} from '../core'
 import {MyArticlesResolver} from './my-articles-resolver.service'
 import {MyArticlesComponent} from './my-articles.component'
+import {ArticleCommentsResolver} from './article-comments-resolver.service'
 
 
 
@@ -20,7 +21,8 @@ import {MyArticlesComponent} from './my-articles.component'
         ArticleResolverService,
         AuthenticationGuardService,
         MyArticlesResolver,
-        CommentService
+        CommentService,
+        ArticleCommentsResolver
     ]
 
 })
