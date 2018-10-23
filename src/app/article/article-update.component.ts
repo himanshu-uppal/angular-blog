@@ -27,8 +27,6 @@ export class ArticleUpdateComponent implements OnInit{
             data=>{
                 console.log(data)
                 this.router.navigate([''])
-
-
             },
             error =>{
                 console.log(error)

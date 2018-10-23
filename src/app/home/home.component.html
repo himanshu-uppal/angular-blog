@@ -16,6 +16,11 @@
                 </div>
 
             </div>
+            <div>
+                <ul class="pagination">
+                    <li><a [class.activePaginate]="paginateLink == currentLink" *ngFor="let paginateLink of paginateLinks" (click)="showClickedPage(paginateLink)">{{paginateLink}}</a></li>
+                </ul>                
+            </div>
             <!-- <div *ngIf="isAuthenticated">
                 <h5>Feed</h5>
                 <br>
@@ -41,7 +46,11 @@
 
             
             
-               
+            <br>  
+            <br>
+            <br>
+            <br>
+            <br> 
         </div>
         <div class="col s12 m12 l4">
                

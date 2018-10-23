@@ -10,8 +10,13 @@ export class ArticleService{
    
     constructor(private http:HttpClient,private authenticationService:AuthenticationService,private authenticationTokenService:AuthenticationTokenService){ }
    
-    getArticles():Observable<IArticles>{
-        return this.http.get<IArticles>('https://conduit.productionready.io/api/articles')
+    getArticles(filters?:string):Observable<IArticles>{
+        let url = 'https://conduit.productionready.io/api/articles'
+        if(filters){
+            url = url + filters
+                }
+        
+        return this.http.get<IArticles>(url)
     }
 
     saveArticle(articleValues:IArticle,authorizationToken):Observable<IArticle>{
