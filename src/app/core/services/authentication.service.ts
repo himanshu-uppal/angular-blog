@@ -10,7 +10,14 @@ export class AuthenticationService{
     
   private isAuthenticatedSubject = new ReplaySubject<boolean>(1);
   public isUserAuthenticated = this.isAuthenticatedSubject.asObservable();
-    constructor(private http:HttpClient, private authenticationTokenService:AuthenticationTokenService){}   
+    constructor(private http:HttpClient, private authenticationTokenService:AuthenticationTokenService){
+        if(this.authenticationTokenService.getToken()){
+            this.isAuthenticatedSubject.next(true)
+        }
+        else{
+            this.isAuthenticatedSubject.next(false)
+        }
+    }   
 
     authenticateUser(authenticationType:string,userValues:any):Observable<IResponseUser>{
         let options = {headers:new HttpHeaders({'Content-Type':'application/json'})}
